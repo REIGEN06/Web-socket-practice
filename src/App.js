@@ -1,7 +1,7 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { PageOne, PageTwo, PageZero } from "./components/Pages";
-import { MainPage } from "./MainPage";
+import { MainPage } from "./components/MainPage";
 
 function App() {
   return (

@@ -20,7 +20,7 @@ const BuildPage1 = (index) => (
   <>
     <StyledText $size="20px">Page {index}</StyledText>
     <StyledText>
-      Page {index} content: {loremIpsum({ count: 500 })}
+      Page {index} content: {loremIpsum({ count: 100 })}
     </StyledText>
   </>
 );

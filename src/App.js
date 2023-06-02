@@ -1,4 +1,3 @@
-import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { PageOne, PageTwo, PageZero } from "./components/Pages";
 import { MainPage } from "./components/MainPage";

@@ -85,13 +85,14 @@ const Rotate = styled.div`
 `;
 
 export const MainPage = () => {
-  const [active, setActive] = useState("1");
+  const [active, setActive] = useState(document.location.pathname);
   const navigate = useNavigate();
+
   const handleClick = (event) => {
     navigate(event.target.id, { replace: false });
     setActive(event.target.id);
-    console.log(event.target);
   };
+
   return (
     <Wrapper>
       <ColorChangeBackground>
@@ -110,18 +111,18 @@ export const MainPage = () => {
             <StyledText id={"/"}>Home</StyledText>
           </NavButton>
           <NavButton
-            id={"one"}
+            id={"/one"}
             onClick={handleClick}
-            className={active === "one" ? "active" : undefined}
+            className={active === "/one" ? "active" : undefined}
           >
-            <StyledText id={"one"}>One</StyledText>
+            <StyledText id={"/one"}>One</StyledText>
           </NavButton>
           <NavButton
-            id={"two"}
+            id={"/two"}
             onClick={handleClick}
-            className={active === "two" ? "active" : undefined}
+            className={active === "/two" ? "active" : undefined}
           >
-            <StyledText id={"two"}>Two</StyledText>
+            <StyledText id={"/two"}>Two</StyledText>
           </NavButton>
         </NavBar>
       </ColorChangeBackground>

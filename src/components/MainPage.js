@@ -1,5 +1,6 @@
 import { Outlet, useNavigate } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
+import { useState } from "react";
 
 const Wrapper = styled.section`
   background: #ffd3ce;
@@ -13,16 +14,21 @@ const NavBar = styled.section`
   display: flex;
   padding: 4px;
 `;
+
 const NavButton = styled.button`
-  border: thin solid #ff8080;
   border-radius: 5px;
   height: 30px;
   width: 60px;
+  cursor: pointer;
+  background-color: ${(props) =>
+    props.className === "active" ? "#9fa5ff" : ""};
 
   &:hover {
-    background: #ff8080;
+    background-color: #c6a8f7;
+    transform: scale(1.05);
   }
 `;
+
 const StyledText = styled.p`
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   margin: 5px;
@@ -79,8 +85,13 @@ const Rotate = styled.div`
 `;
 
 export const MainPage = () => {
+  const [active, setActive] = useState("1");
   const navigate = useNavigate();
-
+  const handleClick = (event) => {
+    navigate(event.target.id, { replace: false });
+    setActive(event.target.id);
+    console.log(event.target);
+  };
   return (
     <Wrapper>
       <ColorChangeBackground>
@@ -91,14 +102,26 @@ export const MainPage = () => {
               Hello, everynyan, how are you? Fine, thank you
             </StyledText>
           </ColorChangeText>
-          <NavButton onClick={() => navigate("/", { replace: false })}>
-            <StyledText>Home</StyledText>
+          <NavButton
+            id={"/"}
+            onClick={handleClick}
+            className={active === "/" ? "active" : undefined}
+          >
+            <StyledText id={"/"}>Home</StyledText>
           </NavButton>
-          <NavButton onClick={() => navigate("one", { replace: false })}>
-            <StyledText>One</StyledText>
+          <NavButton
+            id={"one"}
+            onClick={handleClick}
+            className={active === "one" ? "active" : undefined}
+          >
+            <StyledText id={"one"}>One</StyledText>
           </NavButton>
-          <NavButton onClick={() => navigate("two", { replace: false })}>
-            <StyledText>Two</StyledText>
+          <NavButton
+            id={"two"}
+            onClick={handleClick}
+            className={active === "two" ? "active" : undefined}
+          >
+            <StyledText id={"two"}>Two</StyledText>
           </NavButton>
         </NavBar>
       </ColorChangeBackground>

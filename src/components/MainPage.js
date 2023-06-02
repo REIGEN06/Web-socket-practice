@@ -91,7 +91,7 @@ const rotate = keyframes`
 `;
 const Rotate = styled.div`
   display: inline-block;
-  animation: ${rotate} 5s linear infinite;
+  animation: ${rotate} 50s linear infinite;
   padding: 10px;
   font-size: 30px;
 `;
@@ -109,7 +109,7 @@ export const MainPage = () => {
     <Wrapper>
       <ColorBackground>
         <RowCenter>
-          <Rotate>😳</Rotate>
+          <Rotate>😺</Rotate>
           <ColorChangeText>
             <StyledText $size="20px">
               Hello, everynyan, how are you? Fine, thank you

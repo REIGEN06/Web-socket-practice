@@ -16,9 +16,17 @@ const BuildPage = (index) => (
     </StyledText>
   </>
 );
+const BuildPage1 = (index) => (
+  <>
+    <StyledText $size="20px">Page {index}</StyledText>
+    <StyledText>
+      Page {index} content: {loremIpsum({ count: 500 })}
+    </StyledText>
+  </>
+);
 
 export const PageZero = () => (
   <StyledText>This is the main page, choose any other!</StyledText>
 );
 export const PageOne = () => BuildPage(1);
-export const PageTwo = () => BuildPage(2);
+export const PageTwo = () => BuildPage1(2);

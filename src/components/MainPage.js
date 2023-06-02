@@ -8,17 +8,24 @@ const Wrapper = styled.section`
 const ColorPage = styled.section`
   background: #d0d9fd;
 `;
-const NavBar = styled.section`
-  //background: #86b2f5;
+
+const RowCenter = styled.section`
   align-items: center;
+  justify-content: center;
   display: flex;
-  padding: 4px;
+  padding: 10px;
+`;
+const NavBar = styled(RowCenter)`
+  box-shadow: 0px 2px #6422fd;
+  position: sticky;
+  top: 0;
 `;
 
 const NavButton = styled.button`
   border-radius: 5px;
   height: 30px;
   width: 60px;
+  margin: 5px;
   cursor: pointer;
   background-color: ${(props) =>
     props.className === "active" ? "#9fa5ff" : ""};
@@ -28,7 +35,6 @@ const NavButton = styled.button`
     transform: scale(1.05);
   }
 `;
-
 const StyledText = styled.p`
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   margin: 5px;
@@ -48,9 +54,15 @@ const colorChangeBackground = keyframes`
     background-color: #68c6f9;
   }
 `;
-const ColorChangeBackground = styled.div`
+const ColorBackground = styled.div`
   animation: ${colorChangeBackground} 4s ease infinite;
 `;
+
+const ColorBackgroundSticky = styled(ColorBackground)`
+  position: sticky;
+  top: 0;
+`;
+
 const colorChangeText = keyframes`
   0% {
     color: #3a3a3a;
@@ -95,14 +107,18 @@ export const MainPage = () => {
 
   return (
     <Wrapper>
-      <ColorChangeBackground>
-        <NavBar>
+      <ColorBackground>
+        <RowCenter>
           <Rotate>😳</Rotate>
           <ColorChangeText>
             <StyledText $size="20px">
               Hello, everynyan, how are you? Fine, thank you
             </StyledText>
           </ColorChangeText>
+        </RowCenter>
+      </ColorBackground>
+      <ColorBackgroundSticky>
+        <NavBar>
           <NavButton
             id={"/"}
             onClick={handleClick}
@@ -125,7 +141,7 @@ export const MainPage = () => {
             <StyledText id={"/two"}>Two</StyledText>
           </NavButton>
         </NavBar>
-      </ColorChangeBackground>
+      </ColorBackgroundSticky>
       <ColorPage>
         <Outlet />
       </ColorPage>

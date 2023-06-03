@@ -8,23 +8,23 @@ const Wrapper = styled.section`
 const ColorPage = styled.section`
   background: #d0d9fd;
 `;
-
 const RowCenter = styled.section`
   align-items: center;
   justify-content: center;
   display: flex;
   padding: 10px;
 `;
+const RowBetween = styled(RowCenter)`
+  justify-content: space-between;
+`;
 const NavBar = styled(RowCenter)`
   box-shadow: 0px 2px #6422fd;
   position: sticky;
   top: 0;
 `;
-
 const NavButton = styled.button`
   border-radius: 5px;
   height: 30px;
-  width: 60px;
   margin: 5px;
   cursor: pointer;
   background-color: ${(props) =>
@@ -57,12 +57,10 @@ const colorChangeBackground = keyframes`
 const ColorBackground = styled.div`
   animation: ${colorChangeBackground} 4s ease infinite;
 `;
-
 const ColorBackgroundSticky = styled(ColorBackground)`
   position: sticky;
   top: 0;
 `;
-
 const colorChangeText = keyframes`
   0% {
     color: #3a3a3a;
@@ -108,14 +106,32 @@ export const MainPage = () => {
   return (
     <Wrapper>
       <ColorBackground>
-        <RowCenter>
-          <Rotate>😺</Rotate>
-          <ColorChangeText>
-            <StyledText $size="20px">
-              Hello, everynyan, how are you? Fine, thank you
-            </StyledText>
-          </ColorChangeText>
-        </RowCenter>
+        <RowBetween>
+          <RowCenter>
+            <Rotate>😺</Rotate>
+            <ColorChangeText>
+              <StyledText $size="20px">
+                Hello, everynyan, how are you? Fine, thank you
+              </StyledText>
+            </ColorChangeText>
+          </RowCenter>
+          <RowCenter>
+            <NavButton
+              id={"/Register"}
+              onClick={handleClick}
+              className={active === "/Register" ? "active" : undefined}
+            >
+              <StyledText id={"/Register"}>Registration</StyledText>
+            </NavButton>
+            <NavButton
+              id={"/Signin"}
+              onClick={handleClick}
+              className={active === "/Signin" ? "active" : undefined}
+            >
+              <StyledText id={"/Signin"}>Sign in</StyledText>
+            </NavButton>
+          </RowCenter>
+        </RowBetween>
       </ColorBackground>
       <ColorBackgroundSticky>
         <NavBar>

@@ -24,7 +24,6 @@ const NavBar = styled(RowCenter)`
 `;
 const NavButton = styled.button`
   border-radius: 5px;
-  height: 30px;
   margin: 5px;
   cursor: pointer;
   background-color: ${(props) =>
@@ -117,18 +116,18 @@ export const MainPage = () => {
           </RowCenter>
           <RowCenter>
             <NavButton
-              id={"/Register"}
+              id={"/signUp"}
               onClick={handleClick}
-              className={active === "/Register" ? "active" : undefined}
+              className={active === "/signUp" ? "active" : undefined}
             >
-              <StyledText id={"/Register"}>Registration</StyledText>
+              <StyledText id={"/signUp"}>Sign Up</StyledText>
             </NavButton>
             <NavButton
-              id={"/Signin"}
+              id={"/logIn"}
               onClick={handleClick}
-              className={active === "/Signin" ? "active" : undefined}
+              className={active === "/logIn" ? "active" : undefined}
             >
-              <StyledText id={"/Signin"}>Sign in</StyledText>
+              <StyledText id={"/logIn"}>Log In</StyledText>
             </NavButton>
           </RowCenter>
         </RowBetween>
